@@ -32,6 +32,14 @@ gem 'bcrypt', '~> 3.1.7'
 #add CORS 
 gem 'rack-cors', require: "rack/cors"
 
+# Add aws-sdk for communication with s3
+gem "aws-sdk", '< 2.0'
+
+# Add paperclip for managing attachments
+gem "paperclip"
+
+
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -42,6 +50,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry'
+  gem "dotenv-rails"
 end
 
 group :development do
