@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 			render json: { user: @user.as_json(only: [:email, :access_token]) },
 					status: :ok
 		else
-			render json: { message: "INVALID EMAIL OR PASSWORD."}
+			render json: { message: "INVALID EMAIL OR PASSWORD."},
 					status: :unauthorized
 		end
 	end
