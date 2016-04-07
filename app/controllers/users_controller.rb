@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	def login
 		@user = User.find_by!(email: params["email"])
 		if @user.authenticate(params["password"])
-			render json: { @user.as_json(only: [:email, :access_token]) },
+			render json: { user: @user.as_json(only: [:email, :access_token]) },
 					status: :ok
 		else
 			render json: { message: "INVALID EMAIL OR PASSWORD."}
