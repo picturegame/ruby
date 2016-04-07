@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  post "registration", to: "registrations#create"
+  post "registrations", to: "registrations#create"
   post "auth/login", to: "users#login"
   post "auth/test", to: "users#check_auth"
 
