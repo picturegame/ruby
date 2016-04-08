@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   post "login", to: "registrations#login"
 
   post "auth/test", to: "users#check_auth"
-  post "image/:id/guesses", to: "users#new_guess"
-  get "guesses/:id", to: "users#show_guess"
 
+ 
   post "posts/create", to: "posts#create"
+
+  get "guesses/:id", to: "users#show"
+  post "image/:id/guesses", to: "users#new"
 
 
   # Example of regular route:

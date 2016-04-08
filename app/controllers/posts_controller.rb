@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_user.posts.create(title: params["title"],
-																			image_url: params["image_url"],
+																			image: params["image"],
 																			solution: params["solution"])
     if @post.save
       render "create.json.jbuilder", status: :created
@@ -16,26 +16,11 @@ class PostsController < ApplicationController
 
   end
 
+  private
+	# Use strong_parameters for attribute whitelisting
+	# Be sure to update your create() and update() controller methods.
+	def user_params
+	  params.require(:post).permit(:avatar)
+	end
 
-
-	# def login
-	# 	@user = User.find_by!(email: params["email"])
-	# 	if @user.authenticate(params["password"])
-	# 		render json: { user: @user.as_json(only: [:email, :access_token]) },
-	# 				status: :ok
-	# 	else
-	# 		render json: { message: "INVALID EMAIL OR PASSWORD."},
-	# 				status: :unauthorized
-	# 	end
-	# end
-
-	# def check_auth
-	# 	if current_user
-	# 		render json: { message: "CURRENT USER: #{current_user.email}"},
-	# 				status: :ok
-	# 	else
-	# 		render json: { message: "AUTHORIZATION IS DOWN."},
-	# 				status: :unauthorized
-	# 	end
-	# end
 end
