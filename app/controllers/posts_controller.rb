@@ -16,11 +16,4 @@ class PostsController < ApplicationController
 
   end
 
-  private
-	# Use strong_parameters for attribute whitelisting
-	# Be sure to update your create() and update() controller methods.
-	def user_params
-	  params.require(:post).permit(:avatar)
-	end
-
 end
