@@ -15,13 +15,26 @@ class RegistrationsController < ApplicationController
 
 	
 	def login
-		@user = User.find_by!(email: params["email"])
+		@user = User.find_by!(username: params["username"])
 		if @user.authenticate(params["password"])
-			render json: { user: @user.as_json(only: [:email, :access_token]) },
+			render json: { user: @user.as_json(only: [:username, :access_token]) },
 					status: :ok
 		else
 			render json: { message: "INVALID EMAIL OR PASSWORD."},
 					status: :unauthorized
 		end
 	end
+
+	def destroy
+		@user = User.find_by(username: params["username"])
+		if @user.authenticate(params["password"])
+			@user.destroy
+				render plain: "USER DESTROYED", 
+				status: :accepted
+		else
+			render json: { error: "INVALID EMAIL OR PASSWORD!" },
+				status: :unauthorized
+		end
+	end
 end
+
