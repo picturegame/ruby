@@ -26,14 +26,14 @@ class RegistrationsController < ApplicationController
 	end
 
 	def destroy
-        @user = User.find_by(username: params["username"])
-        if @user.authenticate(params["password"])
-            @user.destroy
-                render plain: "USER DESTROYED", 
-                status: :accepted
-        else
-            render json: { error: "INVALID EMAIL OR PASSWORD!" },
-                status: :unauthorized
-        end
-    end
+		@user = User.find_by(username: params["username"])
+		if @user.authenticate(params["password"])
+			@user.destroy
+				render plain: "USER DESTROYED", 
+				status: :accepted
+		else
+			render json: { error: "INVALID EMAIL OR PASSWORD!" },
+				status: :unauthorized
+		end
+	end
 end
