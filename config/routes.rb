@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   post "registrations", to: "registrations#create"
-  post "auth/login", to: "users#login"
+  post "login", to: "registrations#login"
   post "auth/test", to: "users#check_auth"
 
   # Example of regular route:
