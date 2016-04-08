@@ -12,4 +12,16 @@ class RegistrationsController < ApplicationController
 					status: :unprocessable_entity
 		end
 	end
+
+	
+	def login
+		@user = User.find_by!(email: params["email"])
+		if @user.authenticate(params["password"])
+			render json: { user: @user.as_json(only: [:email, :access_token]) },
+					status: :ok
+		else
+			render json: { message: "INVALID EMAIL OR PASSWORD."},
+					status: :unauthorized
+		end
+	end
 end
