@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post "login", to: "registrations#login"
   post "auth/test", to: "users#check_auth"
 
+  post "posts/create", to: "posts#create"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
