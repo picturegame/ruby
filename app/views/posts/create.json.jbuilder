@@ -1,4 +1,4 @@
-json.user @post.user.username, :email, :username, :password
+json.user @post.user.username
 json.title @post.title
 json.image @post.image.url
 json.solution @post.solution
