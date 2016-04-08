@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get "guesses/:id", to: "users#show"
   post "image/:id/guesses", to: "users#new"
 
+  get "posts/index", to: "posts#index"
+
+  delete "post/:id", to: "posts#destroy"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

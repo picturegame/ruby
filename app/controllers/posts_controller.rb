@@ -13,7 +13,19 @@ class PostsController < ApplicationController
   end
 
   def index
+  	@posts = Post.all
+  end
 
+  def destroy
+  	@post = Post.find_by(id: params["id"])
+  	if @post.authenticate(params["password"])
+  		@post.destroy
+  		render plain: "USER DESTROYED",
+  		satus: :accepted
+		else
+			render json: { error: "INVALID EMAIL OR PASSWORD!" },
+				status: :unauthorized
+		end
   end
 
 end
