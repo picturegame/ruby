@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 		}
 	validates :auth_token, presence: true
 
+
+
 	def ensure_auth_token
 		unless self.auth_token
 			self.auth_token = User.generate_token
