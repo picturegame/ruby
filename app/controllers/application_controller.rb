@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def current_user
-  	token = request.headers["Auth-Token"]
+  	token = request.headers["X-Auth-Token"]
   	if token
   		User.find_by(auth_token: token)
   	end
