@@ -6,8 +6,15 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   post "registrations", to: "registrations#create"
+  delete "registrations", to: "registrations#destroy"
   post "login", to: "registrations#login"
+
   post "auth/test", to: "users#check_auth"
+  post "image/:id/guesses", to: "users#new_guess"
+  get "guesses/:id", to: "users#show_guess"
+
+  post "posts/create", to: "posts#create"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
