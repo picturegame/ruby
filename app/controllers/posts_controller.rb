@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def index
   	@posts = Post.all
+  	render "index.json.jbuilder", status: :ok
   end
 
   def destroy
