@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408194356) do
+ActiveRecord::Schema.define(version: 20160409223817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20160408194356) do
     t.integer  "user_id"
     t.integer  "post_id"
     t.string   "guess"
-    t.integer  "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "correct"
@@ -36,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160408194356) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "points"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160408194356) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "auth_token"
+    t.integer  "points"
   end
 
 end
