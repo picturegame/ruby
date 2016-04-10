@@ -11,14 +11,11 @@ Rails.application.routes.draw do
 
   post "auth/test", to: "users#check_auth"
 
- 
-  post "posts/create", to: "posts#create"
-
-  get "guesses/:id", to: "users#show"
-  post "image/:id/guesses", to: "users#new"
+  get "guesses/:id", to: "guesses#show"
+  post "image/:id/guesses", to: "guesses#new"
 
   get "posts/index", to: "posts#index"
-
+  post "posts/create", to: "posts#create"
   delete "post/:id", to: "posts#destroy"
 
 
