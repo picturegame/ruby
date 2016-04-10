@@ -3,6 +3,10 @@ class GuessesController < ApplicationController
 
 	def new
 		@image = Post.find(params["id"])
+		if @image.solved == true
+			render json: { errors: "ALREADY SOLVED!" },
+  			status: :unauthorized
+		end
 		correct = @image.solution == params[:guess]
 		if correct
 			@image.update(solved: true)
