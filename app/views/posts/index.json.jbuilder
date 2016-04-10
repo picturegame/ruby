@@ -5,6 +5,7 @@ json.array! @posts do |post|
 	json.solution post.solution
 	json.post_points post.points
 	json.guesses post.guesses
+	json.solved post.solved
 end
 
 json.array! @users do |user|

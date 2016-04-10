@@ -7,8 +7,10 @@ class GuessesController < ApplicationController
 		if correct
 			@image.update(solved: true)
 			current_user.points += @image.points
+			current_user.save
 		else
 			@image.points += 1
+			@image.save
 		end
       	@guess = current_user.guesses.create!(correct: correct,
                                              post_id: @image.id,
