@@ -1,14 +1,14 @@
 class GuessesController < ApplicationController
-	before_action :authenticate!, only [:new]
+	before_action :authenticate!, only: [:new]
 
 	def new
 		@image = Post.find(params["id"])
 		correct = @image.solution == params[:guess]
 		if correct
 			@image.update(solved: true)
-			current_user.update(points: += @image.points)
+			current_user.points += @image.points
 		else
-			@image.update(points: += 1)
+			@image.points += 1
 		end
       	@guess = current_user.guesses.create!(correct: correct,
                                              post_id: @image.id,
