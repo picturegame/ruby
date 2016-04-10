@@ -19,7 +19,7 @@ class GuessesController < ApplicationController
 
 	def show
 		@image = Post.find(params["id"])
-		@guess = @image.guesses.all
+		@guess = @image.guesses.guess.all
 		render "show.json.builder", status: :ok
 		#if fails, will throw a ActiveRecord::Record not found exception
 	end
