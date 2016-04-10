@@ -26,16 +26,16 @@ Params:
 Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
 **Request**
-...
+'...
 {
 	"username": "Bob",
 	"email:" "Bob@bob.bob",
 	"password": "password"
 }
-...
+...'
 
 **Response**
-...
+'...
 {
 	"user": {
 		"username": "bob",
@@ -43,7 +43,7 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 		"auth_token": "c92692fd6c686ef6985b8eb124d37488"
 	}
 }
-...
+...'
 
 #### DELETE /registrations
 
@@ -55,11 +55,11 @@ Params:
 Returns 202 Accepted on Success and 401 Unauthorized in case of failure.
 
 **Request**
-...
+'...
 {
 	"username": "Bob"
 }
-...
+...'
 
 #### POST /login
 
@@ -71,11 +71,11 @@ Params:
 Returns 200 OK on Success and 401 Unauthorized in case of failure.
 
 **Request**
-...
+'...
 {
 	"username": "Bob"
 }
-...
+...'
 
 #### POST /auth/test
 
@@ -106,7 +106,7 @@ Returns 201 Created on success and 404 Not Found if the image id doesn't exist
 Returns 200 OK on success.
 
 **Response** 
-...
+'...
 {
 	"user": "tester",
 	"title": "newone",
@@ -135,7 +135,7 @@ Returns 200 OK on success.
 		"user_points": 0
 	}
 }
-...
+...'
 
 #### POST /posts/create
 
@@ -149,16 +149,16 @@ Params:
 Returns 201 Created on success and 422 Unprocessable Entity on failure.
 
 **Request**
-...
+'...
 {
 	"title": "latest",
 	"image:" (Attached File),
 	"solution": "fire"
 }
-...
+...'
 
 **Response**
-...
+'...
 {
 	"user": "tester",
 	"title": "latest",
@@ -167,7 +167,7 @@ Returns 201 Created on success and 422 Unprocessable Entity on failure.
 	"points": 1
 
 }
-...
+...'
 
 #### DELETE /posts/:id
 
