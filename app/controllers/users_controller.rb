@@ -10,8 +10,4 @@ class UsersController < ApplicationController
 					status: :unauthorized
 		end
 	end
-
-	def scoreboard
-		
-	end
 end
