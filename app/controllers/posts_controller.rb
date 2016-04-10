@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :authenticate!, only: [:create]
+	before_action :authenticate!, only: [:create, :destroy]
 
 	def create
 		@post = current_user.posts.create(title: params["title"],
@@ -20,12 +20,12 @@ class PostsController < ApplicationController
 
   def destroy
   	@post = Post.find_by(id: params["id"])
-  	if @post.authenticate(params["password"])
+  	if current_user.id == @post.user.id
   		@post.destroy
-  		render plain: "USER DESTROYED",
+  		render plain: "POST DESTROYED",
   		satus: :accepted
 		else
-			render json: { error: "INVALID EMAIL OR PASSWORD!" },
+			render json: { error: "INVALID PERMISSION" },
 				status: :unauthorized
 		end
   end
