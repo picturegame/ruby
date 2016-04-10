@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   	@post = Post.find_by(id: params["id"])
   	if current_user.id == @post.user.id
   		@post.destroy
-  		render plain: "POST DESTROYED",
+  		render json: "POST DESTROYED",
   		satus: :accepted
 		else
 			render json: { error: "INVALID PERMISSION" },
