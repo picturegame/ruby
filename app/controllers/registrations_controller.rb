@@ -34,7 +34,7 @@ class RegistrationsController < ApplicationController
 				render plain: "USER DESTROYED", 
 				status: :accepted
 		else
-			render json: { error: "INVALID EMAIL OR PASSWORD!" },
+			render json: { error: "UNAUTHORIZED" },
 				status: :unauthorized
 		end
 	end
