@@ -105,7 +105,7 @@ Returns 201 Created on success and 404 Not Found if the image id doesn't exist
 
 Returns 200 OK on success.
 
-**Response**
+**Response** 
 ...
 {
 	"user": "tester",
