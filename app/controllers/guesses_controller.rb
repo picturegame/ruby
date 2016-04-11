@@ -11,7 +11,7 @@ class GuessesController < ApplicationController
 		if correct
 			@image.update(solved: true)
 			current_user.points += @image.points
-			current_user.points.save
+			current_user.save
 		else
 			@image.points += 1
 			@image.save
